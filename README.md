@@ -22,7 +22,7 @@ venv -m python3 .
 source ./bin/activate
 ```
 
-4. Install prerequisites
+4. Install prerequisites (first time only)
 
 ```
 pip install fpdf
@@ -30,7 +30,7 @@ pip install pick
 pip install requests
 ```
 
-5. Download source 
+5. Download source (first time only)
 
 https://github.com/coughingmouse/Download-Korean-Textbooks/raw/main/download-korean-textbooks.py
 
