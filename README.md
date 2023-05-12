@@ -16,7 +16,7 @@ cd "Korean Textbooks"
 venv -m python3 .
 ```
 
-3. Enter Python Virtual Environment
+3. Enter Python Virtual Environment while on the directory.
 
 ```
 source ./bin/activate
