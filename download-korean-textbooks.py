@@ -599,7 +599,7 @@ def main():
     book_name_list = []
     for book_id in book_ids:
         book_name_list.append(book_id.name)
-    selected = pick(book_name_list, "Pick your book(s) to download.", multiselect=True, min_selection_count=1)
+    selected = pick(book_name_list, "Press Space to pick your book(s) and press Enter to start downloading.", multiselect=True, min_selection_count=1)
     selected_book_ids = []
     for selection in selected:
         selected_book_ids.append(book_ids[selection[1]])   
