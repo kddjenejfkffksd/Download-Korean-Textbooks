@@ -13,7 +13,7 @@ cd "Korean Textbooks"
 2. Set Python Virtual  (first time only)
 
 ```
-venv -m python3 .
+python3 -m venv .
 ```
 
 3. Enter Python Virtual Environment while on the directory.
@@ -25,17 +25,13 @@ source ./bin/activate
 4. Install prerequisites (first time only)
 
 ```
-pip install fpdf
-pip install pick
-pip install requests
+pip install fpdf pick requests
 ```
 
 5. Download source (first time only)
 
-https://github.com/coughingmouse/Download-Korean-Textbooks/raw/main/download-korean-textbooks.py
-
 ```
-curl https://github.com/coughingmouse/Download-Korean-Textbooks/raw/main/download-korean-textbooks.py --output download-korean-textbooks.py
+curl -fsSL https://github.com/coughingmouse/Download-Korean-Textbooks/raw/main/download-korean-textbooks.py --output download-korean-textbooks.py
 ```
 
 6. Run to install in the directory to download files
