@@ -12,8 +12,9 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-import os
 """
+import os
+
 def is_notebook() -> bool:
     try:
         shell = get_ipython().__class__.__name__
@@ -30,11 +31,13 @@ def is_notebook() -> bool:
             return False  # Other type (?)
     except NameError:
         return False      # Probably standard Python interpreter
-if is_notebook():
-    os.system("pip install requests fpdf pick")
-else:
+if not is_notebook():
+    os.system('mkdir "Korean Textbooks"')
+    os.system('cd "Korean Textbooks"')
     os.system("python3 -m venv .")
     os.system("source ./bin/activate")
+os.system("pip install requests fpdf pick")
+
 
 ## Importing Necessary Modules
 import requests # to get image from the web
@@ -691,6 +694,7 @@ if __name__ == "__main__":
     else:
         main()
         os.system("deactivate")
+        os.system("cd ..")
         exit()
 
 widgets.VBox([widgets.Label(value=what_to_say1), widgets.Label(value=what_to_say2)] + [button, out] + checkboxes + [widgets.Label(value=what_to_say1), widgets.Label(value=what_to_say2)] + [button, out])
