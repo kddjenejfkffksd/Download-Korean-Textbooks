@@ -693,8 +693,6 @@ if __name__ == "__main__":
         what_to_say2 = "and press the Download button to start downloading."
     else:
         main()
-        os.system("deactivate")
-        os.system("cd ..")
         exit()
 
 widgets.VBox([widgets.Label(value=what_to_say1), widgets.Label(value=what_to_say2)] + [button, out] + checkboxes + [widgets.Label(value=what_to_say1), widgets.Label(value=what_to_say2)] + [button, out])
