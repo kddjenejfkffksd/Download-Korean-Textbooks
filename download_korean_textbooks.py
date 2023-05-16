@@ -13,6 +13,24 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+def is_notebook() -> bool:
+    try:
+        shell = get_ipython().__class__.__name__
+        if shell == 'ZMQInteractiveShell':
+            return True   # Jupyter notebook or qtconsole
+        elif shell == 'TerminalInteractiveShell':
+            return False  # Terminal running IPython
+        else:
+            try:
+                import google.colab
+                return True
+            except:
+                return False
+            return False  # Other type (?)
+    except NameError:
+        return False      # Probably standard Python interpreter
+if is_notebook():
+    !pip install requests fpdf pick
 
 ## Importing Necessary Modules
 import requests # to get image from the web
@@ -595,6 +613,11 @@ page = 94
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 ########################
+downloading = "Downloading..."
+getting_book = "Getting " + book_id.name + "..."
+got_book = "Got "+ book_id.name + "."
+done = "All done!"
+
 def main():
     book_name_list = []
     for book_id in book_ids:
@@ -602,9 +625,67 @@ def main():
     selected = pick(book_name_list, "Press Space to pick your book(s) and press Enter to start downloading.", multiselect=True, min_selection_count=1)
     selected_book_ids = []
     for selection in selected:
-        selected_book_ids.append(book_ids[selection[1]])   
+        selected_book_ids.append(book_ids[selection[1]])
+
+    print(downloading)
     for selected_book_id in selected_book_ids:
+        print(getting_book)
         get_pdf(selected_book_id)
+        print(got_book)
+    print(done)
+
+import ipywidgets as widgets
+from IPython.display import clear_output
+
+checkboxes_and_book_ids = []
+checkboxes = []
+for book_id in book_ids:
+    if book_id.name.startswith("King Sejong Institute"):
+        book_id.name = book_id.name[22:]
+    checkbox = widgets.Checkbox(
+        value=False,
+        description=book_id.name,
+        disabled=False,
+        indent=False
+    )
+    checkbox_and_book_id = (checkbox, book_id)
+    checkboxes_and_book_ids.append(checkbox_and_book_id)
+    checkboxes.append(checkbox)
+
+button = widgets.Button(
+    description='Download',
+    disabled=False,
+    button_style='', # 'success', 'info', 'warning', 'danger' or ''
+    tooltip='Click me to download',
+    icon='check' # (FontAwesome names without the `fa-` prefix)
+)
+def main_notebook(button):
+    button.disabled = True
+    with out:
+        clear_output()
+        print(downloading)
+    for checkbox_and_book_id in checkboxes_and_book_ids:
+        checkbox = checkbox_and_book_id[0]
+        book_id = checkbox_and_book_id[1]
+        
+        if checkbox.value:
+            with out:
+                print(getting_book)
+            get_pdf(book_id)
+            with out:
+                print(got_book)
+    with out:
+        print(done)
+
 
 if __name__ == "__main__":
-    main()
+    if is_notebook():
+        out = widgets.Output()
+        button.on_click(main_notebook)
+        what_to_say1 = "Mark the checkbox(es) to pick your book(s)"
+        what_to_say2 = "and press the Download button to start downloading."
+    else:
+        main()
+        exit()
+
+widgets.VBox([widgets.Label(value=what_to_say1), widgets.Label(value=what_to_say2)] + [button, out] + checkboxes + [widgets.Label(value=what_to_say1), widgets.Label(value=what_to_say2)] + [button, out])
