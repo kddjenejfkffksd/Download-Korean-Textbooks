@@ -1,8 +1,8 @@
 # Download Korean Textbooks
 
-## Web (requires Google account)
+## Colab (requires Google account)
 
-1. Copy [this](https://github.com/coughingmouse/Download-Korean-Textbooks/raw/main/download_korean_textbooks.py) into a cell and run it.
+1. Copy [this](https://github.com/coughingmouse/Download-Korean-Textbooks/raw/main/download_korean_textbooks.py) into a cell and run it. The code below doesn't work because of a bug in Colab.
 
 ## iPython/Jupyter Notebook
 
