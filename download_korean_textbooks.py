@@ -35,7 +35,10 @@ if not is_notebook():
     os.system('mkdir "Korean Textbooks"')
     os.chdir("Korean Textbooks")
     os.system("/usr/bin/python3 -m venv .")
-    os.system(". ./bin/activate && pip3 install --no-input -r requests fpdf pick")
+    os.system(". ./bin/activate && pip3 install --no-input requests && pip3 install --no-input fpdf && pip3 install --no-input pick")
+    print("Run: $ source 'Korean Textbooks/bin/activate' and then rerun this.")
+else:
+    os.system("pip3 install --no-input requests && pip3 install --no-input fpdf && pip3 install --no-input pick")
 
 
 ## Importing Necessary Modules
@@ -619,10 +622,6 @@ page = 94
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 ########################
-downloading = "Downloading..."
-getting_book = "Getting " + book_id.name + "..."
-got_book = "Got "+ book_id.name + "."
-done = "All done!"
 
 def main():
     book_name_list = []
@@ -633,15 +632,12 @@ def main():
     for selection in selected:
         selected_book_ids.append(book_ids[selection[1]])
 
-    print(downloading)
+    print("Downloading...")
     for selected_book_id in selected_book_ids:
-        print(getting_book)
+        print("Getting " + book_id.name + "...")
         get_pdf(selected_book_id)
-        print(got_book)
-    print(done)
-
-import ipywidgets as widgets
-from IPython.display import clear_output
+        print("Got "+ book_id.name + ".")
+    print("All done!")
 
 checkboxes_and_book_ids = []
 checkboxes = []
@@ -658,34 +654,38 @@ for book_id in book_ids:
     checkboxes_and_book_ids.append(checkbox_and_book_id)
     checkboxes.append(checkbox)
 
-button = widgets.Button(
-    description='Download',
-    disabled=False,
-    button_style='', # 'success', 'info', 'warning', 'danger' or ''
-    tooltip='Click me to download',
-    icon='check' # (FontAwesome names without the `fa-` prefix)
-)
 def main_notebook(button):
     button.disabled = True
     with out:
         clear_output()
-        print(downloading)
+        print("Downloading...")
     for checkbox_and_book_id in checkboxes_and_book_ids:
         checkbox = checkbox_and_book_id[0]
         book_id = checkbox_and_book_id[1]
         
         if checkbox.value:
             with out:
-                print(getting_book)
+                print("Getting " + book_id.name + "...")
             get_pdf(book_id)
             with out:
-                print(got_book)
+                print("Got "+ book_id.name + ".")
     with out:
-        print(done)
+        print("All done!")
 
 
 if __name__ == "__main__":
     if is_notebook():
+        import ipywidgets as widgets
+        from IPython.display import clear_output
+
+        button = widgets.Button(
+            description='Download',
+            disabled=False,
+            button_style='', # 'success', 'info', 'warning', 'danger' or ''
+            tooltip='Click me to download',
+            icon='check' # (FontAwesome names without the `fa-` prefix)
+        )
+
         out = widgets.Output()
         button.on_click(main_notebook)
         what_to_say1 = "Mark the checkbox(es) to pick your book(s)"
