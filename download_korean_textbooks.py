@@ -27,8 +27,6 @@ import tempfile
 
 from pick import pick
 
-what_to_say = "Press Space to pick your book(s) and press Enter to start downloading."
-
 def get_img(fileio):
     image_url, filename = fileio
     # Open the url image, set stream to True, this will return the stream content.
@@ -601,7 +599,7 @@ def main():
     book_name_list = []
     for book_id in book_ids:
         book_name_list.append(book_id.name)
-    selected = pick(book_name_list, what_to_say, multiselect=True, min_selection_count=1)
+    selected = pick(book_name_list, "Press Space to pick your book(s) and press Enter to start downloading.", multiselect=True, min_selection_count=1)
     selected_book_ids = []
     for selection in selected:
         selected_book_ids.append(book_ids[selection[1]])   
