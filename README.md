@@ -31,7 +31,7 @@ pip install fpdf pick requests
 5. Download source (first time only)
 
 ```
-curl -fsSL https://github.com/coughingmouse/Download-Korean-Textbooks/raw/main/download-korean-textbooks.py --output download-korean-textbooks.py
+curl -fsSL https://github.com/coughingmouse/Download-Korean-Textbooks/raw/main/download_korean_textbooks.py --output download-korean-textbooks.py
 ```
 
 6. Run to install in the directory to download files
