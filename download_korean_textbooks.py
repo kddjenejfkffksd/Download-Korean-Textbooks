@@ -34,8 +34,8 @@ def is_notebook() -> bool:
 if not is_notebook():
     os.system('mkdir "Korean Textbooks"')
     os.chdir("Korean Textbooks")
-    os.system("zsh -c python3 -m venv .")
-    os.system("zsh -c source ./bin/activate && pip install requests fpdf pick")
+    os.system("/usr/bin/python3 -m venv .")
+    os.system("source ./bin/activate && pip install requests fpdf pick")
 
 
 ## Importing Necessary Modules
