@@ -634,25 +634,26 @@ def main():
 
     print("Downloading...")
     for selected_book_id in selected_book_ids:
-        print("Getting " + book_id.name + "...")
+        print("Getting " + selected_book_id.name + "...")
         get_pdf(selected_book_id)
-        print("Got "+ book_id.name + ".")
+        print("Got "+ selected_book_id.name + ".")
     print("All done!")
 
 checkboxes_and_book_ids = []
 checkboxes = []
-for book_id in book_ids:
-    if book_id.name.startswith("King Sejong Institute"):
-        book_id.name = book_id.name[22:]
-    checkbox = widgets.Checkbox(
-        value=False,
-        description=book_id.name,
-        disabled=False,
-        indent=False
-    )
-    checkbox_and_book_id = (checkbox, book_id)
-    checkboxes_and_book_ids.append(checkbox_and_book_id)
-    checkboxes.append(checkbox)
+if is_notebook():
+    for book_id in book_ids:
+        if book_id.name.startswith("King Sejong Institute"):
+            book_id.name = book_id.name[22:]
+        checkbox = widgets.Checkbox(
+            value=False,
+            description=book_id.name,
+            disabled=False,
+            indent=False
+        )
+        checkbox_and_book_id = (checkbox, book_id)
+        checkboxes_and_book_ids.append(checkbox_and_book_id)
+        checkboxes.append(checkbox)
 
 def main_notebook(button):
     button.disabled = True
