@@ -12,6 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+import os
 """
 def is_notebook() -> bool:
     try:
@@ -30,7 +31,10 @@ def is_notebook() -> bool:
     except NameError:
         return False      # Probably standard Python interpreter
 if is_notebook():
-    !pip install requests fpdf pick
+    os.system("pip install requests fpdf pick")
+else:
+    os.system("python3 -m venv .")
+    os.system("source ./bin/activate")
 
 ## Importing Necessary Modules
 import requests # to get image from the web
@@ -686,6 +690,7 @@ if __name__ == "__main__":
         what_to_say2 = "and press the Download button to start downloading."
     else:
         main()
+        os.system("deactivate")
         exit()
 
 widgets.VBox([widgets.Label(value=what_to_say1), widgets.Label(value=what_to_say2)] + [button, out] + checkboxes + [widgets.Label(value=what_to_say1), widgets.Label(value=what_to_say2)] + [button, out])
