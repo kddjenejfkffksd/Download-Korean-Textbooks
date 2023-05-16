@@ -11,7 +11,7 @@
 
 ## Unix-like
 
-You need to have Python3, its venv module, pip, and curl installed.
+You need to have Python3, its pip and venv module, and curl installed.
 
 
 1. Download source
