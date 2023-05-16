@@ -33,7 +33,7 @@ def is_notebook() -> bool:
         return False      # Probably standard Python interpreter
 if not is_notebook():
     os.system('mkdir "Korean Textbooks"')
-    os.system('cd "Korean Textbooks"')
+    os.chdir("Korean Textbooks")
     os.system("python3 -m venv .")
     os.system("source ./bin/activate")
 os.system("pip install requests fpdf pick")
