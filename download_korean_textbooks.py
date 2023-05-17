@@ -39,6 +39,8 @@ if not is_notebook():
     print("Run: $ source 'Korean Textbooks/bin/activate' and then rerun this.")
 else:
     os.system("pip3 install --no-input requests && pip3 install --no-input fpdf && pip3 install --no-input pick")
+    import ipywidgets as widgets
+    from IPython.display import clear_output
 
 
 ## Importing Necessary Modules
@@ -676,9 +678,6 @@ def main_notebook(button):
 
 if __name__ == "__main__":
     if is_notebook():
-        import ipywidgets as widgets
-        from IPython.display import clear_output
-
         button = widgets.Button(
             description='Download',
             disabled=False,
