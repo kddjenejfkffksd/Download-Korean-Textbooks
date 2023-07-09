@@ -438,6 +438,12 @@ page = 138
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
+name = "Sejong Korean 1A (ENGLISH EDITION)"
+book = 793
+page = 142
+book_id = metadata(name, book, page)
+book_ids.append(book_id)
+
 name = "세종한국어 익힘책 1A"
 book = 773
 page = 110
@@ -456,9 +462,21 @@ page = 62
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
+name = "EXTENSION ACTIVITY BOOK 1A (ENGLISH EDITION)"
+book = 797
+page = 66
+book_id = metadata(name, book, page)
+book_ids.append(book_id)
+
 name = "세종한국어 1B"
 book = 758
 page = 134
+book_id = metadata(name, book, page)
+book_ids.append(book_id)
+
+name = "Sejong Korean 1B (ENGLISH EDITION)"
+book = 794
+page = 138
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
@@ -480,9 +498,21 @@ page = 74
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
+name = "EXTENSION ACTIVITY BOOK 1B (ENGLISH EDITION)"
+book = 798
+page = 74
+book_id = metadata(name, book, page)
+book_ids.append(book_id)
+
 name = "세종한국어 2A"
 book = 759
 page = 134
+book_id = metadata(name, book, page)
+book_ids.append(book_id)
+
+name = "Sejong Korean 2A (ENGLISH EDITION)"
+book = 795
+page = 138
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
@@ -504,9 +534,21 @@ page = 86
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
+name = "EXTENSION ACTIVITY BOOK 2A (ENGLISH EDITION)"
+book = 799
+page = 86
+book_id = metadata(name, book, page)
+book_ids.append(book_id)
+
 name = "세종한국어 2B"
 book = 760
 page = 134
+book_id = metadata(name, book, page)
+book_ids.append(book_id)
+
+name = "Sejong Korean 2B (ENGLISH EDITION)"
+book = 796
+page = 138
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
@@ -525,6 +567,12 @@ book_ids.append(book_id)
 name = "세종한국어 더하기 활동 2B"
 book = 768
 page = 82
+book_id = metadata(name, book, page)
+book_ids.append(book_id)
+
+name = "EXTENSION ACTIVITY BOOK 2B (ENGLISH EDITION)"
+book = 800
+page = 86
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
