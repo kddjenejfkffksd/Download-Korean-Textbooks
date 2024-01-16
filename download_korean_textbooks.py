@@ -288,13 +288,13 @@ book = 960
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
-name = "King Sejong Institute Practical Korean 3 English"
+name = "King Sejong Institute Practical Korean 3"
 page = 182
 book = 831
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
-name = "King Sejong Institute Practical Korean 4 English"
+name = "King Sejong Institute Practical Korean 4"
 page = 182
 book = 832
 book_id = metadata(name, book, page)
