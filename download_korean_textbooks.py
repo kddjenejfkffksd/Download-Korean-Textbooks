@@ -108,7 +108,7 @@ default_process = cpu_count()
 # Uncomment corresponding book name, book number, and page length
 # Run the cell
 
-name = "King Sejong Institute Practical Korean 1 Korean"
+name = "King Sejong Institute Practical Korean 1 English"
 page = 182
 book = 824
 book_id = metadata(name, book, page)
@@ -198,7 +198,7 @@ book = 946
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
-name = "King Sejong Institute Practical Korean 2 Korean"
+name = "King Sejong Institute Practical Korean 2 English"
 page = 186
 book = 825
 book_id = metadata(name, book, page)
@@ -288,13 +288,13 @@ book = 960
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
-name = "King Sejong Institute Practical Korean 3"
+name = "King Sejong Institute Practical Korean 3 English"
 page = 182
 book = 831
 book_id = metadata(name, book, page)
 book_ids.append(book_id)
 
-name = "King Sejong Institute Practical Korean 4"
+name = "King Sejong Institute Practical Korean 4 English"
 page = 182
 book = 832
 book_id = metadata(name, book, page)
